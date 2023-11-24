@@ -28,7 +28,7 @@ public class Produit {
     @NotEmpty
     private double prix;
 
-    private String image;
+    //private String image;
 
 
 
