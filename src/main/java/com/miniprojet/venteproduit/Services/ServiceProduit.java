@@ -13,8 +13,9 @@ import java.util.Optional;
 public class ServiceProduit implements IServiceProduits {
     ProduitRepository produitRepository;
     @Override
-    public void saveProduit(Produit p) {
+    public Produit saveProduit(Produit p) {
         produitRepository.save(p);
+        return p;
     }
 
     @Override

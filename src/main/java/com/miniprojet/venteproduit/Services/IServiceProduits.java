@@ -5,7 +5,7 @@ import com.miniprojet.venteproduit.Entities.Produit;
 import java.util.List;
 
 public interface IServiceProduits {
-    public void saveProduit(Produit P) ;
+    public Produit saveProduit(Produit P) ;
 
     public List<Produit> getAllProduits();
 

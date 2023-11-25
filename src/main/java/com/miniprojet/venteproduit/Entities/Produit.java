@@ -1,6 +1,7 @@
 package com.miniprojet.venteproduit.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -25,7 +26,8 @@ public class Produit {
 
     private String description;
 
-    @NotEmpty
+    @NotNull(message = "le prix ne doit pas etre null")
+    @DecimalMin(value = "0.0",inclusive = false,message = "le prix doit etre superieur à 0.0")
     private double prix;
 
     //private String image;

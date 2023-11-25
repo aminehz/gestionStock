@@ -2,6 +2,7 @@ package com.miniprojet.venteproduit.Services;
 
 import com.miniprojet.venteproduit.DAO.CategorieRepository;
 import com.miniprojet.venteproduit.Entities.Categorie;
+import com.miniprojet.venteproduit.Entities.Produit;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +30,14 @@ public class ServiceCategorie implements IServiceCategories{
             Categorie existingCategorie=existingCategorieOptional.get();
             existingCategorie.setNom(updatedCategorie.getNom());
             existingCategorie.setDescription(updatedCategorie.getDescription());
-            existingCategorie.setNom(updatedCategorie.getNom());
+            List<Produit> produits=existingCategorie.getProduits();
+            for(Produit produit : produits){
+                produit.setCategorie(updatedCategorie);
+            }
+            existingCategorie.setId(id);
+            return categorieRepository.save(existingCategorie);
         }
-        return updatedCategorie;
+        return null;
     }
 
     @Override
