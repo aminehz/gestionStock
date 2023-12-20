@@ -22,7 +22,7 @@ public class ServiceProduit implements IServiceProduit {
     private ProduitRepository produitRepository;
     @Override
     public void saveProduit(Produit p, MultipartFile mf) throws IOException {
-        if(!mf.isEmpty()){
+        if(mf!=null && (!mf.isEmpty())){
             p.setPhoto(saveImage(mf));
         }
         produitRepository.save(p);
